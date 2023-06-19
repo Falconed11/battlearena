@@ -13,7 +13,7 @@ const flash = require('connect-flash')
 
 //flahs configuration
 app.use(session({
-    cookie: {maxAge : 6000},
+    cookie: { maxAge: 6000 },
     secret: 'secret',
     resave: true,
     saveUninitialized: true
@@ -67,6 +67,13 @@ app.get('/rank', (req, res) => {
 app.get('/topup', (req, res) => {
     res.render('topup', {
         title: 'Halaman Top Up',
+        layout: 'layouts/main-layout'
+    })
+})
+
+app.get('/library', (req, res) => {
+    res.render('library', {
+        title: 'Halaman Library',
         layout: 'layouts/main-layout'
     })
 })
