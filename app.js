@@ -64,6 +64,13 @@ app.get('/rank', (req, res) => {
     })
 })
 
+app.get('/library', (req, res) => {
+    res.render('library', {
+        title: 'Halaman Library',
+        layout: 'layouts/main-layout'
+    })
+})
+
 app.get('/player', (req, res) => {
     const sql = ('SELECT * FROM player')
     db.query(sql, (err, result) => {
