@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <div class="h1">Rank</div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table position-relative start-50 translate-middle-x">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama User</th>
+                        <th scope="col">Point</th>
+                    </tr>
+                </thead>
+                <tbody class="rank">
+
+                </tbody>
+                <script>
+                    fetch('http://localhost:3000/player')
+                        .then(res => res.json())
+                        .then(res => {
+                            console.log(res)
+                            const players = res.result
+                            let content = ''
+                            players.sort((a, b) => b.point - a.point).forEach((player, i) => {
+                                content += `<tr >
+                                                <th scope="row">${i+1}</th>
+                                                <td>${player.username}</td>
+                                                <td>${player.point}</td>
+                                            </tr>`
+                            });
+                            const rank = document.querySelector('.rank');
+                            rank.innerHTML = content
+                        })
+                </script>
+            </table>
+        </div>
+    </div>
+</div>
