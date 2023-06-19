@@ -64,6 +64,13 @@ app.get('/rank', (req, res) => {
     })
 })
 
+app.get('/topup', (req, res) => {
+    res.render('topup', {
+        title: 'Halaman Top Up',
+        layout: 'layouts/main-layout'
+    })
+})
+
 app.get('/player', (req, res) => {
     const sql = ('SELECT * FROM player')
     db.query(sql, (err, result) => {
